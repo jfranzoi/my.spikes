@@ -1,35 +1,34 @@
-package my;
+package my.fizzbuzz;
 
-
-public class FizzBuzzGame {
+public class Game {
 
 	private int counted;
 
-	public FizzBuzzGame() {
+	public Game() {
 		this(0);
 	}
-	
-	public FizzBuzzGame(int fromValue) {
+
+	public Game(int fromValue) {
 		counted = fromValue;
 	}
 
 	public String nextTurn() {
 		countNext();
-		
+
 		Player player = new Player();
-		
-		if(multipleOf(3)){
+
+		if (multipleOf(3)) {
 			player.say("Fizz");
 		}
-		
-		if(multipleOf(5)){
+
+		if (multipleOf(5)) {
 			player.say("Buzz");
 		}
-		
-		if (player.nothingSaid()){
+
+		if (player.nothingSaid()) {
 			player.say(current());
 		}
-		
+
 		return player.message();
 	}
 

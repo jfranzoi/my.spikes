@@ -1,4 +1,4 @@
-package my;
+package my.fizzbuzz;
 
 import static org.junit.Assert.*;
 
@@ -8,7 +8,7 @@ public class AcceptanceTest {
 
 	@Test
 	public void upToThree() {
-		FizzBuzzGame game = new FizzBuzzGame();
+		Game game = new Game();
 
 		assertEquals("1", game.nextTurn());
 		assertEquals("2", game.nextTurn());
@@ -17,7 +17,7 @@ public class AcceptanceTest {
 
 	@Test
 	public void upToFive() throws Exception {
-		FizzBuzzGame game = new FizzBuzzGame(3);
+		Game game = new Game(3);
 
 		assertEquals("4", game.nextTurn());
 		assertEquals("Buzz", game.nextTurn());
@@ -25,7 +25,7 @@ public class AcceptanceTest {
 
 	@Test
 	public void upToTwelve() throws Exception {
-		FizzBuzzGame game = new FizzBuzzGame(5);
+		Game game = new Game(5);
 		
 		assertEquals("Fizz", game.nextTurn());
 		assertEquals("7", game.nextTurn());
@@ -38,7 +38,7 @@ public class AcceptanceTest {
 
 	@Test
 	public void upToFifteen() throws Exception {
-		FizzBuzzGame game = new FizzBuzzGame(12);
+		Game game = new Game(12);
 		
 		assertEquals("13", game.nextTurn());
 		assertEquals("14", game.nextTurn());
