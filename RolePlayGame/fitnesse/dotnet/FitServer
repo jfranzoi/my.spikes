@@ -1,0 +1,3 @@
+#!/bin/bash
+workingDir="$(dirname $0)"
+mono $workingDir/FitServer.exe $@

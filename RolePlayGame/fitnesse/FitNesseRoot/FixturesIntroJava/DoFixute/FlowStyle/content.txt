@@ -1,0 +1,39 @@
+!3 Do Fixture in Flow Style
+ * first fixture, a Do Fixture, "starts" the flow
+ * then, all next tables are parsed as fixture ''methods''
+  * that can return '''other fixtures'''
+!|my.examples.Teens|
+
+|insert|
+|user|Alice|which is|15|years old|
+|user|Bob|which is|25|years old|
+|user|Carl|which is|20|years old|
+
+|teenagers are|
+|name|age|
+|Alice|15|
+|Bob|25|
+
+!3 fixture code
+{{{
+public class TeensFixture extends DoFixture {
+  
+  public UserFixture insert(){
+    return new UserFixture();
+  }
+  
+  public TeenagersFixture teenagersAre(){
+    return new TeenagersFixture();
+  }
+}
+
+public class UserFixture extends DoFixture {
+
+  public void userWhichIsYearsOld(String name, int age){
+    Db.insert(new User(name, age));
+  }
+}
+}}}
+
+!|my.examples.DeleteAllUsers|
+|now|

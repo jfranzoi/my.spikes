@@ -1,0 +1,23 @@
+!3 Scenario 1: A character receives healing and health remains at 100 or less
+Given that a character has a health level of 50,
+And it is that character's turn,
+When that character receives healing of 20,
+Then the character has a health level of 70.
+
+!|Healing|
+|health|healing|current health?|
+|50|20|70|
+
+^FlowStyleFirstScenario
+
+!3 Scenario 2: A character takes damage and health raises above 100
+Given that a character has a health level of 90,
+And it is that character's turn,
+When that character receives healing of 20,
+Then the character has a health level of 100.
+
+!|Healing|
+|health|healing|current health?|
+|90|20|100|
+
+^FlowStyleSecondScenario

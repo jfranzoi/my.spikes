@@ -1,0 +1,27 @@
+!3 Folder structure
+ * ''dotnet/fixtures'' for fixtures (namespace ''my.example'')
+ * ''dotnet/src'' for application code
+ * ''build/dotnet'' for compiled .dll assemblies
+
+Click on ''Suite'' button to run all tests
+
+!3 from FIT
+ * ^ColumnFixture
+ * ^ActionFixture
+ * ^RowFixture
+
+!3 from !-FitLibrary-!
+ * ^DoFixture
+  * ^DoFixute.FlowStyle
+ * ^SetupFixture
+
+.. so let's see a FixturesSummary!
+
+!*****> configuration for .NET or Mono
+!define COMMAND_PATTERN {%m %p}
+!define TEST_RUNNER {dotnet/FitServer}
+!define PATH_SEPARATOR {;}
+**********!
+!*****> path
+!path ../build/dotnet/*.dll
+**********!

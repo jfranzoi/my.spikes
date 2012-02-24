@@ -1,0 +1,35 @@
+!3 Scenario 1:
+Given that the species is Human,
+When a character is created,
+Then that character has a sword.
+
+!|Action|
+|start|Game|
+|press|create character|
+|enter|name|Thorr|
+|enter|species|Human|
+|press|ok|
+
+!|Characters|
+|name|weapons|
+|Thorr|sword|
+
+^FlowStyleFirstScenario
+
+!3 Scenario 2:
+Given that the species is Lizard,
+When a character is created,
+Then that character has a club.
+
+!|Action|
+|start|Game|
+|press|create character|
+|enter|name|Astrid|
+|enter|species|Lizard|
+|press|ok|
+
+!|Characters|
+|name|weapons|
+|Astrid|club|
+
+^FlowStyleSecondScenario

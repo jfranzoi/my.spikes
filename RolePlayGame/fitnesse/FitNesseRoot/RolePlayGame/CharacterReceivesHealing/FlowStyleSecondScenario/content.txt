@@ -1,0 +1,13 @@
+!3 Scenario 2: A character takes damage and health raises above 100
+Given that a character has a health level of 90,
+And it is that character's turn,
+When that character receives healing of 20,
+Then the character has a health level of 100.
+
+!|Role Play Game|
+
+|create character|Thorr|with health level|90|
+
+|when|Thorr|
+|is healed by|20|health level points|
+|check|its health level is|100|

@@ -1,0 +1,13 @@
+!3 Scenario 1: A character takes damage and health remains above 0
+Given that a character has a health level of 100,
+And it is that character's turn,
+When that character takes damage of 20,
+Then the character has a health level of 80.
+
+!|Role Play Game|
+
+|create character|Thorr|with health level|100|
+
+|when|Thorr|
+|is damaged by|20|health level points|
+|check|its health level is|80|

@@ -1,0 +1,23 @@
+!3 Scenario 1: A character takes damage and health remains above 0
+Given that a character has a health level of 100,
+And it is that character's turn,
+When that character takes damage of 20,
+Then the character has a health level of 80.
+
+!|Damage|
+|health|damage|current health?|
+|100|20|80|
+
+^FlowStyleFirstScenario
+
+!3 Scenario 2: A character takes damage and health drops below zero
+Given that a character has a health level of 10,
+And it is that character's turn,
+When that character takes damage of 20,
+Then the character has a health level of 0.
+
+!|Damage|
+|health|damage|current health?|
+|10|20|0|
+
+^FlowStyleSecondScenario

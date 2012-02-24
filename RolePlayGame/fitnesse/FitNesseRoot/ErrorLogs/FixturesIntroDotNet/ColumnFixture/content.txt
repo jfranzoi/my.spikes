@@ -1,0 +1,4 @@
+|'''Date: '''|!-5:10:35 PM (CET) on Saturday, January 24, 2009-!|
+|'''Command: '''|!-dotnet/FitServer /Users/jacopo/Develope/eclipse/default/RolePlayGame/fitnesse/../build/dotnet/RolePlayGame.dll;classes;fitnesse.jar;fitlibrary.jar jacopo.local 8081 2-!|
+|'''Exit code: '''|!-2-!|
+|'''Time elapsed: '''|!-0.603 seconds-!|

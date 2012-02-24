@@ -1,0 +1,16 @@
+!3 Scenario 1: Character discards an item
+Given it is a character's turn,
+When the player chooses to discard an item,
+And the player specifies ''the name of the item'' to discard,
+Then the character removes that item to its collection of items,
+And the game displays the items currently being carried by the character.
+
+!|Role Play Game|
+
+|create character|Thorr| with |old map, magic poison, key|
+
+|when|Thorr|
+|discard the|key|
+|check|its items are|old map, magic poison|
+
+|check|items displayed are|old map, magic poison|

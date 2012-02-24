@@ -1,0 +1,25 @@
+!|Import|
+|my.examples|
+
+!3 Column Fixture
+ * first row for fixture name (eg: ''Calculator One'')
+ * inputs given as columns
+ * outputs too, but marked with ''question mark'' (or ''brackets'')
+ * each row is a different calculation
+!|Calculator One|
+|numerator|denominator|quotient?|quotient()|
+|100|4|25|25|
+|100|3|33|33|
+
+!3 fixture code
+{{{
+public class CalculatorOneFixture : ColumnFixture {
+  public double numerator;
+  public double denominator;
+  
+  public double Quotient(){
+    Calculator calculator = new Calculator(); // system under test
+    return calculator.QuotientFor(numerator, denominator);
+  }
+}
+}}}

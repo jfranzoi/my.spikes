@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="RolePlayGame" default="build">
+	
+	<property name="build.dir" value="build/dotnet" />
+	<fileset id="src.dirs" basedir="dotnet">
+        <include name="src/**/*.cs" />
+        <include name="fixtures/**/*.cs" />
+	</fileset>
+	
+	<target name="build" depends="init">
+		<csc target="library" output="${build.dir}/RolePlayGame.dll" debug="false">
+		    <sources refid="src.dirs" />
+		    <references>
+		        <include name="System.dll" />
+		        <include name="fitnesse/dotnet/*.dll" />
+		    </references>
+		</csc>
+	</target>
+	
+	<target name="init" depends="clean">
+		<mkdir dir="${build.dir}" />
+	</target>
+	
+	<target name="clean">
+		<delete dir="${build.dir}" />
+	</target>
+</project>

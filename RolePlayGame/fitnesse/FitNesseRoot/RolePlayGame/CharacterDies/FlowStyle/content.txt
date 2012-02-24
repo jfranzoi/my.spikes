@@ -1,0 +1,21 @@
+!3 Scenario 1: Health runs out
+Given that a character has a health level of 10,
+When ''a game event'' reduces that character's health by 10,
+Then the character is removed from the game and skipped in future turns.
+
+!|Role Play Game|
+
+|create character|Thorr|with health level|10|
+|create character|Astrid|with health level|100|
+
+|characters are|
+|name|health level|
+|Thorr|10|
+|Astrid|100|
+
+|when|Thorr|
+|is damaged by|10|health level points|
+
+|characters are|
+|name|health level|
+|Astrid|100|

@@ -1,0 +1,13 @@
+!3 Scenario 1: A character receives healing and health remains at 100 or less
+Given that a character has a health level of 50,
+And it is that character's turn,
+When that character receives healing of 20,
+Then the character has a health level of 70.
+
+!|Role Play Game|
+
+|create character|Thorr|with health level|50|
+
+|when|Thorr|
+|is healed by|20|health level points|
+|check|its health level is|70|

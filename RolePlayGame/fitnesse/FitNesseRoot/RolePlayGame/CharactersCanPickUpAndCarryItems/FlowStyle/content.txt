@@ -1,0 +1,18 @@
+!3 Scenario 1: Character picks up an item
+Given it is a character's turn,
+When the player chooses to pick up an item,
+And the player specifies ''the name of the item'',
+Then the character adds the item to its collection of items,
+And the game displays the items currently being carried by the character.
+
+!|Role Play Game|
+
+|create character|Thorr|
+
+|check|current turn is|Thorr|
+
+|when|Thorr|
+|pick up the|key|
+|check|its items are|key|
+
+|check|items displayed are|key|

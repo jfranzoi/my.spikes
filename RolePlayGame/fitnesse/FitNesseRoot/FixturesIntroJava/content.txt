@@ -1,0 +1,22 @@
+!3 Folder structure
+ * ''java/fixtures'' for fixtures (package ''my.example'')
+ * ''java/src'' for application code
+ * ''build/java'' for compiled .class files
+
+Click on ''Suite'' button to run all tests
+
+!3 From FIT
+ * ^ColumnFixture
+ * ^ActionFixture
+ * ^RowFixture
+
+!3 From !-FitLibrary-!
+ * ^DoFixture
+  * ^DoFixute.FlowStyle
+ * ^SetupFixture
+
+.. so let's see a FixturesSummary!
+
+!*****> path
+!path ../build/java
+**********!

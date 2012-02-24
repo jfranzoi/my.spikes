@@ -1,0 +1,9 @@
+Here's a brief introduction on Customer TDD and FitNesse
+
+ * ^CustomerTestDrivenDevelopment -- at iteration beginning customer writes ATs for domain and business logic, as ''examples''
+ * ^AvailableTools -- tools for ATs, FIT, and how FitNesse works
+
+And here some examples
+ * FixturesIntroJava -- Java examples
+ * FixturesIntroDotNet -- C# examples
+ * RolePlayGame -- a whole application, in Java

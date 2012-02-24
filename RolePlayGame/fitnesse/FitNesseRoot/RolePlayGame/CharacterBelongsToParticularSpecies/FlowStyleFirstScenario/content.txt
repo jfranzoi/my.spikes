@@ -1,0 +1,18 @@
+!3 Scenario 1:
+Given that a character by the name "Thorr" does not already exist,
+When the Player chooses "Create Character" and enters the name "Thorr",
+And also specifies ''a species'' of "Human",
+Then a character has been created with a species type of "Human",
+And a Health level of 100,
+And the player has been added to the game.
+
+!|Role Play Game|
+
+|characters are|
+|name|species|
+
+|create character|Thorr|of species|Human|
+
+|characters are|
+|name|species|
+|Thorr|Human|

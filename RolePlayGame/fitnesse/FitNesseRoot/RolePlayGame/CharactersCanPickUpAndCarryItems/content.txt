@@ -1,0 +1,26 @@
+!3 Scenario 1: Character picks up an item
+Given it is a character's turn,
+When the player chooses to pick up an item,
+And the player specifies ''the name of the item'',
+Then the character adds the item to its collection of items,
+And the game displays the items currently being carried by the character.
+
+!|Action|
+|start|Game|
+
+!|Setup character|
+|name|
+|Thorr|
+
+!|Action|
+|check|current turn|Thorr|
+|press|pick up item|
+|enter|item name|key|
+|press|ok|
+|check|items displayed|key|
+
+!|Characters|
+|name|items|
+|Thorr|key|
+
+^FlowStyle

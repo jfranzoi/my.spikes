@@ -1,0 +1,23 @@
+!|Import|
+|my.examples|
+
+!3 Do Fixture
+ * first row for fixture name
+ * each row is a ''natural language'' sentence
+ * put ''words'' and '''test data''' in separate cells
+  * (eg: ''quotient of'', '''100''', ''and'', '''4''', ''is'', '''25''')
+ * some keywords: ''check'', ''ensure'', ''not'', ..
+!|Calculator Three|
+|check|quotient of|100|and|4|is|25|
+|check|quotient of|100|and|3|is|33|
+
+!3 fixture code
+{{{
+public class CalculatorThreeFixture extends DoFixture {
+
+  public double quotientOfAndIs(double numerator, double denominator){
+    Calculator calculator = new Calculator(); // system under test
+    return calculator.quotientFor(numerator, denominator);
+  }
+}
+}}}

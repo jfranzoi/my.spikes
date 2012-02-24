@@ -1,0 +1,16 @@
+!3 Scenario 2: Two characters have been created
+Given that two characters "Thorr" and "Astrid" have been created,
+And the current turn belongs to "Thorr",
+When the player chooses "Advance Turn",
+Then the system displays that the current turn belongs to "Astrid".
+
+!|Role Play Game|
+
+|create character|Thorr|
+|create character|Astrid|
+
+|check|current turn is|Thorr|
+
+|advance turn|
+
+|check|current turn is|Astrid|

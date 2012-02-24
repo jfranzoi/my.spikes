@@ -1,0 +1,53 @@
+!3 Scenario 1:
+Given that a character by the name "Thorr" does not already exist,
+When the Player chooses "Create Character" and enters the name "Thorr",
+And also specifies ''a species'' of "Human",
+Then a character has been created with a species type of "Human",
+And a Health level of 100,
+And the player has been added to the game.
+
+!|Action|
+|start|Game|
+
+!|Characters|
+|name|species|
+
+!|Action|
+|press|create character|
+|enter|name|Thorr|
+|enter|species|Human|
+|press|ok|
+
+!|Characters|
+|name|species|
+|Thorr|Human|
+
+^FlowStyleFirstScenario
+
+!3 Scenario 2:
+Given that a character by the name "Thorr" does not already exist,
+When the Player chooses "Create Character" and enters the name "Thorr",
+And also specifies a species besides "Human" or "Lizard",
+Then the game displays a message that the only valid species types are "Human" and "Lizard",
+And the player is given another opportunity to specify the species.
+
+!|Action|
+|start|Game|
+
+!|Characters|
+|name|species|
+
+!|Action|
+|press|create character|
+|enter|name|Thorr|
+|enter|species|Elf|
+|press|ok|
+|check|message|the only valid species types are Human and Lizard|
+|enter|species|Human|
+|press|ok|
+
+!|Characters|
+|name|species|
+|Thorr|Human|
+
+^FlowStyleSecondScenario

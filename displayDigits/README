@@ -1,0 +1,11 @@
+how to build:
+	ant
+
+by default it compiles and run unit and integration tests.
+
+usage:
+	./display [-s size] numbers
+
+for example:
+	./display 1034
+	./display -s 2 7845

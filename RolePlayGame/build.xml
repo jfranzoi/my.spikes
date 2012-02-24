@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="RolePlayGame" default="all">
+	
+	<property name="src.dirs" value="java/src:java/test:java/fixtures"/>
+	<property name="build.dir" value="build/java"/>
+	
+	<path id="main.classpath">
+		<fileset dir="libs">
+			<include name="junit.jar"/>
+		</fileset>
+		<fileset dir="fitnesse">
+			<include name="fitnesse.jar"/>
+			<include name="fitlibrary.jar"/>
+		</fileset>
+	</path>
+	
+	<target name="all" depends="build, test"/>
+	
+	<target name="test" depends="build">
+		<junit haltonfailure="true" outputtoformatters="yes" haltonerror="true" fork="yes" dir="${basedir}" forkmode="perBatch">
+			<classpath refid="main.classpath" />
+			<classpath location="${build.dir}"/>
+			<formatter type="plain" usefile="no" />
+			<batchtest todir="${build.dir}">
+				<fileset dir="${build.dir}" includes="**/*Test.class" />
+			</batchtest>
+		</junit>
+	</target>
+	
+    <target name="build" depends="init">
+		<javac srcdir="${src.dirs}" destdir="${build.dir}">
+			<include name="**/*.java" />
+			<classpath refid="main.classpath" />
+		</javac>
+    </target>
+	
+	<target name="init" depends="clean">
+		<mkdir dir="${build.dir}" />
+	</target>
+	
+	<target name="clean">
+		<delete dir="${build.dir}" />
+	</target>
+</project>

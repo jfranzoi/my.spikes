@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="displayDigits" default="all">
+	
+	<path id="main.classpath">
+		<fileset dir="libs">
+			<include name="junit.jar"/>
+		</fileset>
+	</path>
+	
+	<target name="all" depends="build, test"/>
+	
+	<target name="test" depends="build">
+		<junit haltonfailure="true" outputtoformatters="yes" haltonerror="true" fork="yes" dir="${basedir}" forkmode="perBatch">
+			<classpath refid="main.classpath" />
+			<classpath location="bin"/>
+			<formatter type="plain" usefile="no" />
+			<batchtest todir="bin">
+				<fileset dir="bin" includes="**/*Test.class" />
+			</batchtest>
+		</junit>
+	</target>
+	
+    <target name="build" depends="init">
+		<javac srcdir="src:unit:integration" destdir="bin">
+			<include name="**/*.java" />
+			<classpath refid="main.classpath" />
+		</javac>
+    </target>
+	
+	<target name="init" depends="clean">
+		<mkdir dir="bin" />
+	</target>
+	
+	<target name="clean">
+		<delete dir="bin" />
+	</target>
+</project>

@@ -1,0 +1,1 @@
+logged in as <#if user.name?? >${user.name}</#if>

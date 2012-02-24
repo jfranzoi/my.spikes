@@ -1,0 +1,39 @@
+!|Import|
+|my.examples|
+
+!3 Setup Fixture
+ * first row for fixture name (eg: ''Create User'')
+ * second row for fields name (eg: ''name'', ''age'')
+ * then, data to setup
+!|Create User|
+|name|age|
+|Alice|15|
+|Bob|25|
+|Carl|14|
+
+ * with Column Fixture we used a third column, ''ok?'', for doing the insert
+{{{
+!|Insert User|
+|name|age|ok?|
+|Alice|15|true|
+|Bob|25|true|
+|Carl|14|true|
+}}}
+ * .. so, let's see it works!
+!|Teenagers|
+|name|age|
+|Alice|15|
+|Carl|14|
+
+!3 fixture code
+{{{
+public class CreateUser : SetUpFixture {
+
+  public void NameAge(string name, int age){
+    Db.Insert(new User(name, age));
+  }
+}
+}}}
+
+!|Delete all users|
+|now|

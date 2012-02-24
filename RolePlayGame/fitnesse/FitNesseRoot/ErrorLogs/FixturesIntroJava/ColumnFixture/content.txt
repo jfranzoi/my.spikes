@@ -1,0 +1,4 @@
+|'''Date: '''|!-11:31:17 AM (CET) on Sunday, January 4, 2009-!|
+|'''Command: '''|!-java -cp ../build/java:classes:fitnesse.jar:fitlibrary.jar fit.FitServer jacopo.local 8080 6-!|
+|'''Exit code: '''|!-2-!|
+|'''Time elapsed: '''|!-0.821 seconds-!|

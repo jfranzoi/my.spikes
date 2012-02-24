@@ -1,0 +1,12 @@
+!3 Scenario 2:
+Given that the species is Lizard,
+When a character is created,
+Then that character has a club.
+
+!|Role Play Game|
+
+|create character|Astrid|of species|Lizard|
+
+|characters are|
+|name|weapons|
+|Astrid|club|

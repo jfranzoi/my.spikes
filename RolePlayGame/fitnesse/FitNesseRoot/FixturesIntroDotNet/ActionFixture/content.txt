@@ -1,0 +1,36 @@
+!|Import|
+|my.examples|
+
+!3 Action Fixture
+ * first row for ''Action'' fixture
+ * then use ''start'' to specify the fixture to use (eg: ''Calculator Two'')
+ * inputs with ''enter''
+ * actions with ''press''
+ * outputs with ''check''
+!|Action|
+|start|Calculator Two|
+|enter|numerator|100|
+|enter|denominator|4|
+|press|quotient|
+|check|result|25|
+|check|result|33|
+
+!3 fixture code
+{{{
+public class CalculatorTwoFixture : Fixture {
+  private double numerator;
+  private double denominator;
+  private double result;
+
+  public double Numerator { set { numerator = value; } }
+  
+  public double Denominator { set { denominator = value; } }
+  
+  public void Quotient(){
+    Calculator calculator = new Calculator(); // system under test
+    result = calculator.QuotientFor(numerator, denominator);
+  }
+  
+  public double Result { get { return result; } }
+}
+}}}

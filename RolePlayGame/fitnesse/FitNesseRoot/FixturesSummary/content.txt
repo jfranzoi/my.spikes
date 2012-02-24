@@ -1,0 +1,22 @@
+Let's briefly recap main fixtures
+
+|'''fixture'''|'''what it does'''|'''good for'''|
+|''Column'' (from fit)|input and output in column, process each row|calculations|
+|''Action'' (from fit)|simulate user interaction (''enter'', ''press'', ''check'')|user interfaces, command lines, etc..|
+|''Row'' (from fit)|query some data and check the results|querying, filtering and checking a status|
+|''Do'' (from fitlibrary)|sentences in natural language, "flow style" to collect different tables|very powerful and flexible|
+|''Setup'' (from fitlibrary)|populate shared setup data|setup the ''given'' of a user story|
+
+!2 Some features...
+!3 for Testing
+ * '''Suite''' property, run all child pages with tests
+ * '''Include fixture''' (from fit), as ''import'' in Java or ''using'' in C#
+ * '''Setup''' and '''Teardown''' pages, .Setup and !-.TearDown-!
+!3 as a Wiki
+ * '''hierarchical pages''' organization, with .
+ * '''include''' pages, with !include
+ * '''list content''' with !contents -R (recursively)
+
+... and now it's time for the FitNesse.UserGuide !
+
+

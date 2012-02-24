@@ -1,0 +1,40 @@
+!3 Scenario 1: One character has been created
+Given that one character "Thorr" has been created,
+And the current turn belongs to "Thorr",
+When the player chooses "Advance Turn",
+Then the system displays that the current turn belongs to "Thorr".
+
+!|Action|
+|start|Game|
+
+!|Setup character|
+|name|
+|Thorr|
+
+!|Action|
+|check|current turn|Thorr|
+|press|advance turn|
+|check|current turn|Thorr|
+
+^FlowStyleFirstScenario
+
+!3 Scenario 2: Two characters have been created
+Given that two characters "Thorr" and "Astrid" have been created,
+And the current turn belongs to "Thorr",
+When the player chooses "Advance Turn",
+Then the system displays that the current turn belongs to "Astrid".
+
+!|Action|
+|start|Game|
+
+!|Setup character|
+|name|
+|Thorr|
+|Astrid|
+
+!|Action|
+|check|current turn|Thorr|
+|press|advance turn|
+|check|current turn|Astrid|
+
+^FlowStyleSecondScenario

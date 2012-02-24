@@ -1,0 +1,17 @@
+!2 User Stories
+ * 01 - ^PlayerCreatesCharacter
+ * 02 - ^PlayersTakeTurnBeingPlayed
+ * 03 - ^CharacterTakesDamage
+ * 04 - ^CharacterReceivesHealing
+ * 05 - ^CharacterDies
+ * 06 - ^CharactersCanPickUpAndCarryItems
+ * 07 - ^CharactersCanDiscardItems
+ * 08 - ^CharacterBelongsToParticularSpecies
+ * 09 - ^EachSpeciesHasStandardDefaultWeapon
+----
+!*****> configuration
+!path ../build/java
+**********!
+----
+!3 Index
+!contents -R

@@ -1,0 +1,17 @@
+!3 Scenario 1: The character is created
+Given that a character by the name "Thorr" does not already exist,
+When the Player chooses "Create Character" and enters the name "Thorr",
+Then a character has been created with the name of "Thorr",
+And a Health  level of 100,
+And the player has been added to the game.
+
+!|Role Play Game|
+
+!|characters are|
+|name|health level|
+
+!|create character|Thorr|
+
+!|characters are|
+|name|health level|
+|Thorr|100|

@@ -1,0 +1,11 @@
++ parse command line: digits
++ display ascii picture
++ join pictures
++ join pictures with spaces
++ all 10 digits can be displayed as ASCII
++ collect digits and display
++ size: command line
++ size: resizable digits
++ size: resize digits
++ default size to 2
++ usage on bad command line

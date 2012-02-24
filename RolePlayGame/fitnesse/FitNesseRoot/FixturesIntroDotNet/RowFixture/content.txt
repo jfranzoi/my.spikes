@@ -1,0 +1,48 @@
+!|Import|
+|my.examples|
+ * let's use a Column Fixture to insert some test data..
+!|Insert User|
+|name|age|ok?|
+|Alice|15|true|
+|Bob|25|true|
+|Carl|14|true|
+
+!3 Row Fixture
+ * first row for fixture name (eg: Teenagers)
+ * second row for fields to show
+ * from third row on, expected data
+
+'''example''': teens, under 16
+ * Bob is ''missing'', cannot find in results
+ * Carl is ''surplus'', unexpected but found in results
+!|Teenagers|
+|name|age|
+|Alice|15|
+|Bob|25|
+
+!3 fixture code
+{{{
+public class TeenagersFixture : RowFixture {
+
+  public override Type GetTargetClass() {
+    return typeof(User);
+  }
+
+  public override object[] Query() {
+    UserGateway users = new UserGateway(); // system under test
+    List<User> teens = users.Teens();
+    return teens.ToArray();
+  }
+}
+
+public class User {
+
+  public string name;
+  public int age;
+
+  ...
+}
+}}}
+
+!|Delete all users|
+|now|

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="homeMadeTestDriver" default="all">
+
+	<!--	please, configure MySQL options.
+			default using 'root' user without password-->
+	<property name="mysql.opts" value="-uroot" />
+	
+	<property name="local.port" value="8080" />
+	<property name="target.dir" value="target" />
+	<property name="build.dir" value="${target.dir}/classes" />
+	<property name="test.dir" value="${target.dir}/test-classes" />
+	
+	<path id="main.classpath">
+		<fileset dir="libs" includes="*.jar" />
+	</path>
+	
+	<target name="all" depends="build, test, run.locally" description="build, test and run application locally" />
+	
+	<target name="run.locally" depends="build" description="run application locally">
+		<echo message="Please wait a few seconds, then open your browser at http://localhost:${local.port}" />
+		<echo message="" />
+
+		<java classname="org.mortbay.jetty.Main" fork="true" 
+			classpathref="main.classpath" classpath="${build.dir}" >
+			<arg value="8080" />
+			<arg value="-webapp" />
+			<arg value="main/web" />
+		</java>
+	</target>
+	
+    <target name="test.compile">
+		<javac srcdir="tests/unit/java:tests/integration/java" destdir="${test.dir}" 
+			classpathref="main.classpath" classpath="${build.dir}">
+			<include name="**/*.java" />
+		</javac>
+    	<copy todir="${test.dir}">
+    		<fileset dir="tests/integration/resources" includes="**/*.*" />
+    	</copy>
+    </target>
+	
+	<target name="test.run">
+		<junit haltonfailure="true" outputtoformatters="yes" haltonerror="true" fork="yes" 
+			dir="${basedir}" forkmode="perBatch">
+			<classpath refid="main.classpath" />
+			<classpath location="${build.dir}" />
+			<classpath location="${test.dir}" />
+			<formatter type="plain" usefile="no" />
+			<batchtest todir="${test.dir}">
+				<fileset dir="${test.dir}" includes="**/*Test.class" />
+			</batchtest>
+		</junit>
+	</target>
+	
+	<target name="test" depends="build, test.compile, test.run" description="compile and run all tests" />
+	
+    <target name="build" depends="init" description="build application">
+		<javac srcdir="main/java" destdir="${build.dir}" 
+			classpathref="main.classpath">
+			<include name="**/*.java" />
+		</javac>
+    	<copy todir="${build.dir}">
+    		<fileset dir="main/resources" includes="**/*.*" />
+    	</copy>
+    </target>
+	
+	<target name="init" depends="clean">
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${test.dir}" />
+	</target>
+	
+	<target name="clean" description="clean all files">
+		<delete dir="${target.dir}" />
+	</target>
+	
+	<macrodef name="init-database">
+		<attribute name="database.name"/>
+		<sequential>
+			<echo message="creating database @{database.name}" />
+			<exec executable="mysql" inputstring="CREATE DATABASE @{database.name}">
+				<arg value="${mysql.opts}"/>
+			</exec>
+			
+			<echo message="creating tables" />
+			<exec executable="mysql" input="data/mysql/01_items.sql">
+				<arg value="${mysql.opts}"/>
+				<arg value="@{database.name}"/>
+			</exec>
+		</sequential>
+	</macrodef>
+	
+	<macrodef name="populate-database">
+		<attribute name="database.name"/>
+		<sequential>
+			<echo message="populating @{database.name} with data" />
+			<exec executable="mysql" input="data/mysql/02_seed_data.sql">
+				<arg value="${mysql.opts}"/>
+				<arg value="@{database.name}"/>
+			</exec>
+		</sequential>
+	</macrodef>
+	
+	<target name="db.init" description="initialize databases">
+		<init-database database.name="hmtd_test"/>
+		
+		<init-database database.name="hmtd_development"/>
+		<populate-database database.name="hmtd_development"/>
+	</target>
+</project>

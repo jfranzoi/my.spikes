@@ -1,0 +1,15 @@
+!3 Scenario 1: One character has been created
+Given that one character "Thorr" has been created,
+And the current turn belongs to "Thorr",
+When the player chooses "Advance Turn",
+Then the system displays that the current turn belongs to "Thorr".
+
+!|Role Play Game|
+
+|create character|Thorr|
+
+|check|current turn is|Thorr|
+
+|advance turn|
+
+|check|current turn is|Thorr|

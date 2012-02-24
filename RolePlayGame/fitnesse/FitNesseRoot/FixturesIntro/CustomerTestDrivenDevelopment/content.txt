@@ -1,0 +1,21 @@
+!2 Customer TDD
+ * customer write Acceptance Tests (ATs) for a user story
+  * when the iteration starts, with developers (and testers)
+ * developers write the application
+  * unit-tested, during the iteration
+ * everybody runs the ATs
+  * and they should pass, at the end of the iteration
+ * ..so it takes almost an iteration to have feedback
+  * don't use ATs for TDD: test/code each few minutes, write the ''code right''
+  * use them to clarify requirements, and to check you understood, write the ''right code''
+  * http://www.extremeprogramming.org/map/project.html
+!2 Acceptance Tests
+ * write '''examples'''
+  * use them within the textual requirements
+  * helpful to clarify a general rule, (see "Specification by examples", by M.Fowler)
+ * better results for '''business'''/'''domain rules'''
+  * eg. discounts, rates, monetary rules, validation
+  * decoupled from technical issues, such as database, middleware, etc..
+ * also used for end-to-end tests
+  * when possible: dedicated environment needed, or at least stubbing external subsystems
+  * better to use Integration Tests, written for developers, by developers

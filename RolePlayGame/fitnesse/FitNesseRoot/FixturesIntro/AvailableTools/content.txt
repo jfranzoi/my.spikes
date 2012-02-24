@@ -1,0 +1,31 @@
+!2 Tools for acceptance tests
+ * ATs in a ''programming'' language, written using unit test tools (e.g. jUnit for Java, NUnit for .NET)
+  * not too many customers can do that
+  * static languages need to compile, so '''it takes long''' to see ATs running (and have feedback)
+ * ATs in the ''domain'' language, written in rich text documents, spreadsheets or webpages
+  * customers can do that, examples expressed in '''tabular data'''
+!3 FIT
+ * [[Framework for Integrated Tests][.FitNesse.FitFramework]]
+ * look for TABLE tags in HTML pages, '''tables'''
+ * map tables to classes (eg: Java), '''fixtures'''
+ * fixtures talk with the real system, SUT ('''system under test''')
+{{{
+       table --> fixture --> SUT
+
+    (colored)
+     results <-- fixture <-- SUT
+}}}
+!2 !-FitNesse-!
+ * wiki front-end for FIT
+  * starts as a standalone webserver, written in Java
+  * convert wiki to HTML pages before executing FIT
+ * executes fixtures written in many langages (Java, .NET, python, ruby, C++, etc..)
+   * '''test runner'''
+   * '''path''' for fixtures and application code
+ * each wiki page can be run as a ''Test page''  or as a ''Suite page'', a collection of tests
+!3 Fixtures
+ * some provided by FIT: ''Column'', ''Action'' and ''Row'' fixture
+ * [[!-FitLibrary-!][.FitNesse.FitLibraryUserGuide]]: ''Do'' and ''Setup'' fixture
+ * custom fixtures
+  * just extend the Fixture class
+  * some available. eg: jdbc, http, soap, etc..

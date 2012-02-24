@@ -1,0 +1,21 @@
+!3 Scenario 2:
+Given that a character by the name "Thorr" does not already exist,
+When the Player chooses "Create Character" and enters the name "Thorr",
+And also specifies a species besides "Human" or "Lizard",
+Then the game displays a message that the only valid species types are "Human" and "Lizard",
+And the player is given another opportunity to specify the species.
+
+!|Role Play Game|
+
+|characters are|
+|name|species|
+
+|create character|Thorr|of species|Elf|
+
+|check|message is|the only valid species types are Human and Lizard|
+
+|create character|Thorr|of species|Human|
+
+|characters are|
+|name|species|
+|Thorr|Human|

@@ -1,0 +1,12 @@
+!3 Scenario 1:
+Given that the species is Human,
+When a character is created,
+Then that character has a sword.
+
+!|Role Play Game|
+
+|create character|Thorr|of species|Human|
+
+|characters are|
+|name|weapons|
+|Thorr|sword|

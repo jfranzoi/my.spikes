@@ -1,0 +1,14 @@
+!3 Scenario 2: Character tries to discard an item when it has none
+Given it is a character's turn,
+When the player chooses to discard an item,
+And the character is carrying no items,
+Then the the game says the character is carrying no items.
+
+!|Role Play Game|
+
+|create character|Thorr|
+
+|when|Thorr|
+|discard the|key|
+
+|check|message is|the character is carrying no items|
