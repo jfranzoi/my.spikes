@@ -1,0 +1,6 @@
+|eg.Division                    |
+|numerator|denominator|quotient?|
+|10       |2          |5.0      |
+|12.6     |3          |4.2      |
+|22       |7          |3.142857142857143   |
+|100      |4          |25.0     |
