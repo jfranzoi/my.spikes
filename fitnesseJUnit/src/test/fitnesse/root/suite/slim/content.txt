@@ -1,0 +1,9 @@
+!define TEST_SYSTEM {slim}
+
+!|import|
+|my.spikes.fitnesse.fixtures|
+
+|beers|
+|age|allowed?|
+|21|yes|
+|14|no|
