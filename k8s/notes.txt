@@ -1,0 +1,23 @@
+- pods
+- services
+-- node port
+-- load balancer
+- labels
+- replica set
+
+
+# hello minikube
+kubectl create deployment hello-node --image=registry.k8s.io/e2e-test-images/agnhost:2.39 -- /agnhost netexec --http-port=8080
+kubectl expose deployment hello-node --type=LoadBalancer --port=8080
+
+#k8s tutorial
+kubectl create deployment kubernetes-bootcamp --image=gcr.io/google-samples/kubernetes-bootcamp:v1
+kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port 8080
+echo "$(kubectl get services/kubernetes-bootcamp -o go-template='{{(index .spec.ports 0).nodePort}}')"
+
+kubectl scale deployments/kubernetes-bootcamp --replicas=4
+kubectl get pods -o wide
+
+kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=docker.io/jocatalin/kubernetes-bootcamp:v2
+kubectl set image deployments/kubernetes-bootcamp kubernetes-bootcamp=gcr.io/google-samples/kubernetes-bootcamp:v10
+kubectl rollout undo deployments/kubernetes-bootcamp
