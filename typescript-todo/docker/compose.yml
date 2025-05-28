@@ -5,6 +5,7 @@ services:
     build:
       context: ..
       dockerfile: docker/Dockerfile
+    env_file:
+      - ../config/${ENV:-local}/env.config
     ports:
-      - 8080:3000
-    
+      - 8080:8080
