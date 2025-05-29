@@ -4,6 +4,7 @@ import {
   HttpRedirectResponse,
   Logger,
   Param,
+  Query,
   Redirect,
 } from '@nestjs/common';
 import { AppService } from './app.service';
@@ -17,7 +18,8 @@ export class AppController {
   }
 
   @Get()
-  promisedHello() {
+  promisedHello(@Query() query: unknown) {
+    this.logger.debug('query', query)
     return this.appService.getHello();
   }
 
