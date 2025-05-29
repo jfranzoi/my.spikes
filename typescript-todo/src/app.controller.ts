@@ -1,4 +1,11 @@
-import { Controller, Get, Logger } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  HttpRedirectResponse,
+  Logger,
+  Param,
+  Redirect,
+} from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -10,7 +17,21 @@ export class AppController {
   }
 
   @Get()
-  getHello(): string {
+  promisedHello() {
     return this.appService.getHello();
+  }
+
+  @Get('hello/:name')
+  helloTo(@Param('name') name: string) {
+    return `Hello, ${name}`;
+  }
+
+  @Get('goto')
+  @Redirect()
+  redirection(): HttpRedirectResponse {
+    return {
+      statusCode: 302,
+      url: '/',
+    };
   }
 }
