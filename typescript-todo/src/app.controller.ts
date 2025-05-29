@@ -18,8 +18,8 @@ export class AppController {
   }
 
   @Get()
-  promisedHello(@Query() query: unknown) {
-    this.logger.debug('query', query)
+  promisedHello(@Query() query?: unknown) {
+    this.logger.debug('query', query);
     return this.appService.getHello();
   }
 
