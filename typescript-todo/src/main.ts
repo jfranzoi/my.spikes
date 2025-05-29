@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { ConsoleLogger, LogLevel } from '@nestjs/common';
-import { AppModule } from './app.module';
+import { AppModule } from './app/app.module';
 import * as dotenv from 'dotenv';
 
 function logger() {
